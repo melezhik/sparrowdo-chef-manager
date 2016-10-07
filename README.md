@@ -8,6 +8,9 @@ Sparrowdo module to manage chef users.
 
 # Usage
 
+    task_run %(
+    )
+
 TODO:
 
 # Parameters

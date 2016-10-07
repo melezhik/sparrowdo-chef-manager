@@ -6,9 +6,6 @@ use Sparrowdo;
 
 our sub tasks (%args) {
 
-# chef-server-ctl user-create lingaan1  Anusha  "" Lingareddy  anusha.lingareddy@novartis.com 123456
-# chef-server-ctl org-user-add devops  lingaan1
- 
   my $action = %args<action>;
  
   if $action == 'create-user' {

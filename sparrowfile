@@ -1,0 +1,7 @@
+module_run 'Chef::Manager', %(
+  action => 'create-user',
+  user-id => 'alexey'
+  name => 'Alexey',
+  last-name => 'Melezhik'
+);
+
