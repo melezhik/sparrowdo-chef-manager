@@ -8,6 +8,11 @@ Sparrowdo module to manage chef users.
 
 # Usage
 
+NOTE! An assumption is chef server runs at the host where you run sparrow client,
+as under the hood this module uses `chef-server-ctl` command. 
+
+
+
     module_run 'Chef::Manager', %(
       action => 'delete-user',
       user-id => 'alexey',
@@ -23,8 +28,6 @@ Sparrowdo module to manage chef users.
       org => 'devops'
     );
     
-
-TODO:
 
 # Parameters
 
