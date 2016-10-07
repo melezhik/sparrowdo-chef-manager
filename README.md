@@ -11,7 +11,7 @@ WARNING! --- This soft is far from being ideal, but at least some functions work
 
 # Usage
 
-NOTE! An assumption is chef server runs at the host where you run sparrow client,
+NOTE! An assumption is made that _chef server_ runs at the same host where sparrow client runs,
 as under the hood this module uses `chef-server-ctl` command. 
 
 
