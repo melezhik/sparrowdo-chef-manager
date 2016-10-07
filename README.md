@@ -2,6 +2,9 @@
 
 Sparrowdo module to manage chef users.
 
+WARNING! --- This soft is far from being ideal, but at least some functions work for me.
+
+
 # Install
 
     $ panda install Sparrowdo::Chef::Manager
