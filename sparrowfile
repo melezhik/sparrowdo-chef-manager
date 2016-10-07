@@ -1,7 +1,9 @@
 module_run 'Chef::Manager', %(
   action => 'create-user',
-  user-id => 'alexey'
+  user-id => 'alexey',
+  email => 'melezhik@gmail.com',
   name => 'Alexey',
-  last-name => 'Melezhik'
+  last-name => 'Melezhik',
+  password => '123456',
 );
 
