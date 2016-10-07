@@ -8,8 +8,21 @@ Sparrowdo module to manage chef users.
 
 # Usage
 
-    task_run %(
-    )
+    module_run 'Chef::Manager', %(
+      action => 'delete-user',
+      user-id => 'alexey',
+    );
+    
+    module_run 'Chef::Manager', %(
+      action => 'create-user',
+      user-id => 'alexey',
+      email => 'sparrow.hub@gmail.com',
+      name => 'Alexey',
+      last-name => 'Melezhik',
+      password => '123456',
+      org => 'devops'
+    );
+    
 
 TODO:
 

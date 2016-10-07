@@ -10,13 +10,23 @@ our sub tasks (%args) {
  
   if $action eq 'create-user' {
 
+    my @params = Array.new;
+
+    @params.push: '-o ' ~ %args<org> if %args<org>;
+    @params.push: %args<user-id>;
+    @params.push: %args<name>;
+    @params.push: '""';
+    @params.push: %args<last-name>||'""';
+    @params.push: %args<email>;
+    @params.push: %args<password>;
+    
+
+
     task_run %(
       task    => "create chef user",
       plugin  => "bash",
       parameters => %(
-        command => 'chef-server-ctl user-create --verbose --print-after ' ~
-          %args<user-id> ~  ' ' ~ %args<name>  ~ 
-          ~ ' "" ' ~  %args<last-name> ~  ' ' ~ %args<email> ~ ' ' ~ %args<password> ~ ' ; echo' ,
+        command => 'chef-server-ctl user-create --verbose ' ~ (@params.join(' ')) ~ ' ; echo',
         expect_stdout => '(User\s+\S+\s+already\s+exists|BEGIN\s+RSA\s+PRIVATE\s+KEY)',
         debug => %args<debug> || False
       )

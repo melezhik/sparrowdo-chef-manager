@@ -10,5 +10,6 @@ module_run 'Chef::Manager', %(
   name => 'Alexey',
   last-name => 'Melezhik',
   password => '123456',
+  org => 'devops'
 );
 
