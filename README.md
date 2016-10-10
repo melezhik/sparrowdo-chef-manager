@@ -35,12 +35,19 @@ Chef::Manager module exposes two commands to create/remove chef users.
       org => 'devops'
     );
     
+## Add user to organization
+
+    module_run 'Chef::Manager', %(
+      action  => 'add-to-org',
+      user-id => 'alexey',
+      org     => 'IT'
+    );
 
 # Parameters
 
 ## action
 
-One of two - `delete-user|create-user`.
+One of two - `create-user|delete-user|add-to-org`.
 
 ## user-id 
 

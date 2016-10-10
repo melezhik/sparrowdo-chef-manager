@@ -48,8 +48,7 @@ our sub tasks (%args) {
       task    => "add chef user to organization",
       plugin  => "bash",
       parameters => %(
-        command => 'chef-server-ctl org-user-add --verbose  ' ~ %args<org-id> ~  ' ' ~ %args<user-id>,
-        expect_stdout => '.*',
+        command => 'chef-server-ctl org-user-add --verbose  ' ~ %args<org> ~  ' ' ~ %args<user-id>,
         debug => %args<debug> || False
       )
     );
@@ -64,8 +63,7 @@ our sub tasks (%args) {
       task    => "delete chef user",
       plugin  => "bash",
       parameters => %(
-        command => 'chef-server-ctl  user-delete --verbose -R -y --print-after '  ~ %args<user-id> ~ ' ; echo',
-        expect_stdout => '(Deleting\s+user\s+\S+|Could\s+not\s+find\s+user)',
+        command => 'chef-server-ctl  user-delete --verbose -R -y --print-after '  ~ %args<user-id> ~ ' ; echo ',
         debug => %args<debug> || False
       )
     );
