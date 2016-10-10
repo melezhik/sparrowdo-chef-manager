@@ -14,12 +14,16 @@ WARNING! --- This soft is far from being ideal, but at least some functions work
 NOTE! An assumption is made that _chef server_ runs at the same host where sparrow client runs,
 as under the hood this module uses `chef-server-ctl` command. 
 
+Chef::Manager module exposes two commands to create/remove chef users.
 
+## Delete user
 
     module_run 'Chef::Manager', %(
       action => 'delete-user',
       user-id => 'alexey',
     );
+
+## Create user
     
     module_run 'Chef::Manager', %(
       action => 'create-user',
@@ -34,7 +38,34 @@ as under the hood this module uses `chef-server-ctl` command.
 
 # Parameters
 
-TODO:
+## action
+
+One of two - `delete-user|create-user`.
+
+## user-id 
+
+A chef user ID
+
+## password
+
+A chef user password.
+
+## org
+
+Chef server organization. This one is optional, no default value.
+If `org` parameter is set, then `create-user` action will add a new user to chef organization.
+
+## name
+
+A user name, this one is obligatory.
+
+## last-name
+
+A user last-name, this one is obligatory.
+
+## email
+
+A user email, this one is obligatory.
 
 # Author
 
@@ -43,4 +74,4 @@ TODO:
 # See also
 
 * [SparrowDo](https://github.com/melezhik/sparrowdo)
-
+* [chef-server-ctl (executable)](https://docs.chef.io/ctl_chef_server.html)

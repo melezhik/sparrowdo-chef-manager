@@ -12,6 +12,12 @@ our sub tasks (%args) {
 
     my @params = Array.new;
 
+    # check parameters
+
+    for 'user-id', 'name', 'email', 'password' -> $p {
+      die "$p is required" unless %args{$p};
+    }
+
     @params.push: '-o ' ~ %args<org> if %args<org>;
     @params.push: %args<user-id>;
     @params.push: %args<name>;
@@ -34,6 +40,10 @@ our sub tasks (%args) {
   
   } elsif $action eq 'add-to-org' {
 
+    for 'user-id', 'org' -> $p {
+      die "$p is required" unless %args{$p};
+    }
+
     task_run %(
       task    => "add chef user to organization",
       plugin  => "bash",
@@ -45,6 +55,10 @@ our sub tasks (%args) {
     );
 
   } elsif $action eq 'delete-user' {
+
+    # check parameters
+
+    die "user-id is required" unless %args<user-id>;
 
     task_run %(
       task    => "delete chef user",
