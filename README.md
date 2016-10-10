@@ -44,7 +44,7 @@ One of two - `delete-user|create-user`.
 
 ## user-id 
 
-A chef user ID
+A chef user ID.
 
 ## password
 
