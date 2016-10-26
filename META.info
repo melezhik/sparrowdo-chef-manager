@@ -1,4 +1,5 @@
 {
+  "perl"        : "6.*",
   "name"        : "Sparrowdo::Chef::Manager",
   "version"     : "*",
   "description" : "Sparrowdo module to manage chef users",
